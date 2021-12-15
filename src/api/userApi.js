@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const url = "http://localhost:5000/users"
+const url = "https://sweet-spot-server.herokuapp.com/users"
 
 export const getUsers = () => axios.get(url);
 export const getUser = (id) => axios.get(`${url}/${id}`);
