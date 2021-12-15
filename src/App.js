@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Login from './components/Login/login';
+import Header from './components/header';
+import Posts from './components/Post/posts';
+import Form from './components/Form/Form';
+import Profile from './components/profile/profile';
+import { userContext } from './context/userContext';
+import Navbar from './components/navbar/navbar';
+
+const App = () => {
+    const { loggedIn, tab } = useContext(userContext);
+
+    return (
+        <div >{ !loggedIn ? (
+            <Login />
+        )
+        : (
+            <>
+          {tab === "home" && (
+              <>
+              <Header />
+              <Posts />
+              </>
+          )}
+          {tab === "form" && (
+            <Form />
+          )}
+          {
+              tab === "profile" && (
+                  <Profile />
+              )
+          }
+                    <Navbar />
+        </>)}
+
+        </div>
+    )
 }
 
-export default App;
+export default App

@@ -1,0 +1,27 @@
+.navbar {
+  position: fixed;
+  background-color: white;
+  bottom: 10px;
+  height: 60px;
+  left: 0;
+  right: 0;
+  width: 95%;
+  max-width: 500px;
+  box-shadow: 0 0 20px #cccccc, 0 0 20px #cccccc;
+  margin: 0 auto;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 30%;
+  height: 95%;
+}
+.tab span {
+  font-size: 200%;
+}
