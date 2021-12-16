@@ -7,9 +7,9 @@
   right: 0;
   width: 95%;
   max-width: 500px;
-  box-shadow: 0 0 20px #cccccc, 0 0 20px #cccccc;
   margin: 0 auto;
   border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-around;
   align-items: center;

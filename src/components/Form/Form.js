@@ -5,7 +5,7 @@ import { createPost } from '../../api/postApi';
 
 const Form = () => {
 
-    const { currentUser } = useContext(userContext);
+    const { currentUser,setTab,setNotification } = useContext(userContext);
 
     const [post, setPost] = useState({
         postedFile: "",
@@ -45,13 +45,19 @@ const Form = () => {
         } else {
             setErr('')
             await createPost(post)
-            .then(() => setPost({
+            .then(() => {setPost({
                 postedFile: "",
                 caption: "",
                 userName: currentUser.userName,
                 userProfile: currentUser.profile,
                 userId: currentUser._id
-            }))
+            });
+                        setTab('home');
+                        setNotification('Post Uploaded');
+                        setTimeout(() => {
+                            setNotification('')
+                        },5000)
+        })
         }
     }
 

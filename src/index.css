@@ -7,12 +7,11 @@ body {
   background-color: white;
 }
 .header {
-  margin: 1vh auto;
+  margin: 10px auto 30px;
   font-family: "Dancing Script", cursive;
   color: black;
   border-radius: 5px;
   font-size: 30px;
-  box-shadow: 0px 0px 10px #32b8cb, 0px 0px 10px #32b8cb;
   padding-left: 10px;
   width: 98%;
   max-width: 500px;
@@ -21,6 +20,26 @@ body {
   justify-content: flex-start;
   position: relative;
   align-items: center;
+}
+.header .notification {
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: -20px;
+  background-color: #32b8cb;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  transition: 0.5s;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.header .notification span {
+  color: white;
+  font-size: 25px;
 }
 .header span {
   padding: 0px 6px 0px 0px;
@@ -35,8 +54,9 @@ body {
 .post {
   margin: 20px auto;
   width: 100%;
-  min-height: 450px;
+  min-height: 475px;
   border-radius: 10px;
+  transition: 0.5s;
 }
 .postHeader {
   width: 100%;

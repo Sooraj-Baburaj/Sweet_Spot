@@ -1,12 +1,14 @@
-import React , {useState} from 'react';
+import React , {useState, useContext} from 'react';
+import { userContext } from '../../context/userContext';
 import './login.css';
 import { createUser, LogInUser } from '../../api/userApi';
 
 const Login = () => {
+    const { newUserProfile } = useContext(userContext);
     const [user,setUser] = useState({
         userName: "",
         password: "",
-        profile: "https://images.unsplash.com/photo-1635977725886-0aab77b701c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=385&q=80"
+        profile: newUserProfile
     });
     const [error,setError] = useState();
 
@@ -16,13 +18,13 @@ const Login = () => {
     const passwordChange = (e) => {
         setUser({...user, password: e.target.value})
     }
+
     const handleCreate = async() => {
         if(user.userName === "" || user.password === "" ){
             setError("Fill Both fields")
         } else {
         await createUser(user)
         .then((res) => {
-            console.log(res.data)
             localStorage.setItem("user", JSON.stringify(res.data));
         })
         .catch((err) => console.log(err));
@@ -47,7 +49,7 @@ const Login = () => {
                 <div className="heading">Sign In</div>
                 <div className="inputField">
                 <input type="text" id="username" placeholder="Enter your UserName" onChange={userChange} />
-                <input type="text" id="password" placeholder="Enter your password" onChange={passwordChange} />
+                <input type="password" id="password" placeholder="Enter your password" onChange={passwordChange} />
                 </div>
                 <div className="Submit">
                     <div className="buttons">

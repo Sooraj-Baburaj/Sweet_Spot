@@ -14,7 +14,7 @@ const styles = {
         height: '95px',
         width: '98%',
         maxWidth: '500px',
-        boxShadow: '0 0 30px #cccccc, 0 0 30px #ffffff',
+        boxShadow: '1 2 10px rgba(0,0,0,0.1), 1 3 10px rgba(0,0,0,0.06)',
         borderRadius: '15px',
         backGround: 'white',
         margin: '0px auto 80px',

@@ -54,7 +54,7 @@ const Post = ({post, length, index}) => {
     };
 
     return (
-        <div className="post" style={{boxShadow: !liked ? "0 0 10px #cccccc , 0 0 10px #ffffff" : "0 0 10px #32B8CB, 0 0 10px #32B8CB" , marginBottom: length === index + 1 && !hasMore ? '80px' : ''}} onDoubleClick={handleLike}>
+        <div className="post" style={{boxShadow: !liked ? "0 0 0 2px rgba(0,0,0,0.1) , 0 0 0 2px rgba(0,0,0,0.06)" : "0 0 0 2px #32B8CB, 0 0 0 2px #32B8CB" , marginBottom: length === index + 1 && !hasMore ? '80px' : ''}} onDoubleClick={handleLike}>
             <div className="postHeader">
                 <div className="user" onClick={() => handleProfile()}>
                     <div className="profile"><img src={post.userProfile} alt="" /> </div>
