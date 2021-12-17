@@ -8,12 +8,15 @@ const Login = () => {
     const [user,setUser] = useState({
         userName: "",
         password: "",
-        profile: newUserProfile
+        profile: ''
     });
     const [error,setError] = useState();
 
     const userChange = (e) => {
         setUser({...user, userName: e.target.value})
+        if(!user.profile) {
+        setUser({...user, profile: newUserProfile})
+        }
     }
     const passwordChange = (e) => {
         setUser({...user, password: e.target.value})

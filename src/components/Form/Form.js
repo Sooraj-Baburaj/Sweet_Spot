@@ -1,11 +1,13 @@
 import React, {useState, useContext} from 'react';
 import './form.css';
-import {userContext} from '../../context/userContext'
+import {userContext} from '../../context/userContext';
+import {postContext } from '../../context/postContext';
 import { createPost } from '../../api/postApi';
 
 const Form = () => {
 
     const { currentUser,setTab,setNotification } = useContext(userContext);
+    const {setPosts, posts} = useContext(postContext);
 
     const [post, setPost] = useState({
         postedFile: "",
@@ -43,20 +45,22 @@ const Form = () => {
             setErr("Please fill both fields")
             console.log("hi")
         } else {
-            setErr('')
+            setErr('Uploading...')
             await createPost(post)
-            .then(() => {setPost({
+            .then((res) => {setPost({
                 postedFile: "",
                 caption: "",
                 userName: currentUser.userName,
                 userProfile: currentUser.profile,
                 userId: currentUser._id
             });
+                        setErr('');
                         setTab('home');
                         setNotification('Post Uploaded');
                         setTimeout(() => {
                             setNotification('')
                         },5000)
+                        setPosts([...posts,...res.data])
         })
         }
     }
